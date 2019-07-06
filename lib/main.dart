@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         body: Container(
             child: Column(
           children: <Widget>[
-            Question('First Question'),
+            Question('What do you favorite color?'),
             Answer(),
           ],
         )),
