@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import './answer.dart';
+import './question.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +19,13 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('uzimo-one'),
         ),
-        body: Center(child: Text('this is uzimo-one')),
+        body: Container(
+            child: Column(
+          children: <Widget>[
+            Question('First Question'),
+            Answer(),
+          ],
+        )),
       ),
     );
   }
