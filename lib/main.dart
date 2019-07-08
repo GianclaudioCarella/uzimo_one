@@ -16,9 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final log = Logger(
-    printer: UzimoLogPrinter('MyApp')
-  );
+  final log = Logger(printer: UzimoLogPrinter('MyApp'));
 
   final _questions = _getQuestions();
   var _questionIndex = 0;
@@ -33,51 +31,13 @@ class _MyAppState extends State<MyApp> {
 
   void _answerQuestion(int score) {
     _totalScore += score;
-
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print(_questionIndex);
-    if (_questionIndex < _questions.length) {
-      print('We have more questions!');
-    } else {
-      print('No more questions!');
-    }
-  }
-
-  static _getQuestions(){
-    return [{
-      'questionText': 'What\'s your favorite color?',
-      'answers': [
-        {'text': 'Black', 'score': 10},
-        {'text': 'Red', 'score': 5},
-        {'text': 'Green', 'score': 3},
-        {'text': 'White', 'score': 1},
-      ],
-    },
-    {
-      'questionText': 'What\'s your favorite animal?',
-      'answers': [
-        {'text': 'Rabbit', 'score': 3},
-        {'text': 'Snake', 'score': 11},
-        {'text': 'Elephant', 'score': 5},
-        {'text': 'Lion', 'score': 9},
-      ],
-    },
-    {
-      'questionText': 'Who\'s your favorite instructor?',
-      'answers': [
-        {'text': 'Max', 'score': 1},
-        {'text': 'Max', 'score': 1},
-        {'text': 'Max', 'score': 1},
-        {'text': 'Max', 'score': 1},
-      ],
-    }];
   }
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -92,5 +52,38 @@ class _MyAppState extends State<MyApp> {
             : Result(_totalScore, _resetQuiz),
       ),
     );
+  }
+
+  // TODO: Change to real questions
+  static _getQuestions() {
+    return [
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answers': [
+          {'text': 'Black', 'score': 10},
+          {'text': 'Red', 'score': 5},
+          {'text': 'Green', 'score': 3},
+          {'text': 'White', 'score': 1},
+        ],
+      },
+      {
+        'questionText': 'What\'s your favorite animal?',
+        'answers': [
+          {'text': 'Rabbit', 'score': 3},
+          {'text': 'Snake', 'score': 11},
+          {'text': 'Elephant', 'score': 5},
+          {'text': 'Lion', 'score': 9},
+        ],
+      },
+      {
+        'questionText': 'Who\'s your favorite instructor?',
+        'answers': [
+          {'text': 'Max', 'score': 1},
+          {'text': 'Max', 'score': 1},
+          {'text': 'Max', 'score': 1},
+          {'text': 'Max', 'score': 1},
+        ],
+      }
+    ];
   }
 }
